@@ -61,11 +61,31 @@
   (concat "`=\n" (org-remove-indentation
 		  (org-export-format-code-default src-block info)) "`="))
 
+(defun org-micron-link (link desc info)
+  "Translate LINK object into Micron format."
+  (let* ((link-org-files-as-micron
+	  (lambda (raw-path)
+	    (if (string= ".org" (downcase (file-name-extension raw-path ".")))
+		(concat (file-name-sans-extension raw-path) ".mu") raw-path)))
+	 (type (org-element-property :type link))
+	 (raw-path (org-element-property :path link))
+	 (path (cond ((string-equal type "file")
+		      (funcall link-org-files-as-micron raw-path))
+		     ((member type '("custom-id" "id" "fuzzy"))
+		      raw-path)
+		     (t (concat type ":" raw-path)))))
+    (cond
+     ((org-export-custom-protocol-maybe link desc 'micron info))
+     (t (if (not desc) (format "`[%s]" path)
+	  (format "`[%s`%s]" desc path))))))
+
+
 (org-export-define-backend 'micron
   '((bold            . org-micron-bold)
     (headline        . org-micron-headline)
     (horizontal-rule . org-micron-horizontal-rule)
     (italic          . org-micron-italic)
+    (link            . org-micron-link)
     (paragraph       . org-micron-paragraph)
     (section         . org-micron-section)
     (src-block       . org-micron-code)
