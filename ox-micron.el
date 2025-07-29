@@ -51,6 +51,18 @@
     (concat delim " " title "\n\n"
 	    (or contents ""))))
 
+(defun org-micron-table (table contents info)
+  "Translate TABLE object into Micron format."
+  (format "`=\n%s\n`=" contents))
+
+(defun org-micron-table-row (table-row contents info)
+  "Transcode TABLE ROW object into Micron format."
+  (concat contents "\n"))
+
+(defun org-micron-table-cell (table-cell contents info)
+  "Transcode TABLE CELL object into Micron format."
+  (concat " | " contents))
+
 (defun org-micron-horizontal-rule (hr contents info)
   "Translate HORIZONTAL-RULE objects into Micron format."
   "-\n\n"
@@ -79,7 +91,6 @@
      (t (if (not desc) (format "`[%s]" path)
 	  (format "`[%s`%s]" desc path))))))
 
-
 (org-export-define-backend 'micron
   '((bold            . org-micron-bold)
     (headline        . org-micron-headline)
@@ -89,6 +100,9 @@
     (paragraph       . org-micron-paragraph)
     (section         . org-micron-section)
     (src-block       . org-micron-code)
+    (table           . org-micron-table)
+    (table-cell      . org-micron-table-cell)
+    (table-row       . org-micron-table-row)
     (underline       . org-micron-underline)))
 
 (defun org-micron-export-to-micron
