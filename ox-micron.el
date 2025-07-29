@@ -105,6 +105,10 @@
     (table-row       . org-micron-table-row)
     (underline       . org-micron-underline)))
 
+(defun org-micron-publish-to-micron (plist filename pub-dir)
+  "Publish an org file to Micron."
+  (org-publish-org-to 'micron filename ".mu" plist pub-dir))
+
 (defun org-micron-export-to-micron
     (&optional async subtreep visible-only body-only)
   "Export current buffer to a Micron file."
