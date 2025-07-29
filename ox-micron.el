@@ -71,7 +71,7 @@
 (defun org-micron-code (src-block contents info)
   "Translate SRC-BLOCK objects into Micron format."
   (concat "`=\n" (org-remove-indentation
-		  (org-export-format-code-default src-block info)) "`="))
+		  (org-export-format-code-default src-block info)) "`=\n"))
 
 (defun org-micron-link (link desc info)
   "Translate LINK object into Micron format."
