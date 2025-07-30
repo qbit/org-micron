@@ -23,6 +23,9 @@
 ;; This library implements a simple Micron backend for Org exporter.
 
 ;;; Code:
+(require 'ox)
+(require 'ox-publish)
+
 (defun org-micron-bold (bold contents info)
   "Transcode BOLD object into Micron format."
   (format "`!%s`!" contents))
