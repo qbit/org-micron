@@ -1,4 +1,4 @@
-;;; ox-micron.el --- Micron Backend for Org Export Engine -*- lexical-binding: t; -*-
+;;; org-micron.el --- Micron Backend for Org Export Engine -*- lexical-binding: t; -*-
 
 ;; Author: Aaron Bieber <aaron@bolddaemon.com>
 ;; Keywords: org, text, micron
@@ -127,4 +127,4 @@
   (org-export-to-buffer
       'micron "*Org Micron Export*" async subtreep visible-only body-only))
 
-(provide 'ox-micron)
+(provide 'org-micron)
