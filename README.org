@@ -10,7 +10,12 @@ An org exporter for [[https://reticulum.net][Reticulum]] Micron.
 :ID:       a324209d-000b-4600-841c-6be13e4fbab4
 :END:
 
-See TODOs
+#+begin_src emacs-lisp
+  (use-package org-micron
+    :after org
+    :vc (:url "https://codeberg.org/qbit/org-micron.git"
+              :rev :newest))
+#+end_src
 
 ** Usage
 :PROPERTIES:
