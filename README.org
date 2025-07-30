@@ -5,6 +5,30 @@
 
 An org exporter for [[https://reticulum.net][Reticulum]] Micron.
 
+** Install
+:PROPERTIES:
+:ID:       a324209d-000b-4600-841c-6be13e4fbab4
+:END:
+
+See TODOs
+
+** Usage
+:PROPERTIES:
+:ID:       f2ca55e1-cbb3-4945-b31a-d05d64be58cc
+:END:
+
+You can test your current output bu running ~M-x org-micron-export-to-micron~.
+
+To publish using ~org-publish~:
+#+begin_src emacs-lisp
+  (setq org-publish-project-alist
+        '(("rns"
+  	 :publishing-directory "/rsync:remotehost:/home/you/.nomadnetwork/storage/pages"
+  	 :recursive t
+  	 :publishing-function org-micron-publish-to-micron
+  	 :base-directory "~/org/rns")))
+#+end_src
+
 ** TODOs
 :PROPERTIES:
 :ID:       7d6f1529-4340-4420-af62-bf37d38f5bec
