@@ -5,5 +5,26 @@
 
 An org exporter for [[https://reticulum.net][Reticulum]] Micron.
 
-So far, only basic things like headings, bold, italics, underline and code
-blocks work.
+** TODOs
+:PROPERTIES:
+:ID:       7d6f1529-4340-4420-af62-bf37d38f5bec
+:END:
+
+*** TODO Publish to elpa
+:PROPERTIES:
+:ID:       10e8c06c-f4cd-479e-94b5-8bc075f132c3
+:END:
+*** TODO Tables are missing heading
+:PROPERTIES:
+:ID:       5d72e5c9-1685-47ce-b6ab-4d29f7d3b71d
+:END:
+Headings and formatting need to be worked on a bit.
+*** TODO Fix the missing \n
+:PROPERTIES:
+:ID:       4a0c3e42-9406-4400-98dc-d051f73e8873
+:END:
+Things like headings seem to be lacking a \n somewhere.
+*** TODO Make source blocks carry the code type (``` emacs-lisp in markdown)
+:PROPERTIES:
+:ID:       64a9acc7-788a-448f-97fd-53d32a6231c6
+:END:
