@@ -26,23 +26,23 @@
 (require 'ox)
 (require 'ox-publish)
 
-(defun org-micron-bold (bold contents info)
+(defun org-micron-bold (_bold contents _info)
   "Transcode BOLD object into Micron format."
   (format "`!%s`!" contents))
 
-(defun org-micron-underline (underline contents info)
+(defun org-micron-underline (_underline contents _info)
   "Transcode UNDERLINE object into Micron format."
   (format "`_%s`_" contents))
 
-(defun org-micron-italic (italic contents info)
+(defun org-micron-italic (_italic contents _info)
   "Transcode ITALIC object into Micron format."
   (format "`*%s`*" contents))
 
-(defun org-micron-section (section contents info)
+(defun org-micron-section (_section contents _info)
   "Transcode SECTION object into Micron format."
   (concat contents "\n"))
 
-(defun org-micron-paragraph (paragraph contents info)
+(defun org-micron-paragraph (_paragraph contents _info)
   "Transcode PARAGRAPH object into Micron format."
   (concat contents "\n\n"))
 
@@ -54,24 +54,24 @@
     (concat delim " " title "\n\n"
 	    (or contents ""))))
 
-(defun org-micron-table (table contents info)
+(defun org-micron-table (_table contents _info)
   "Translate TABLE object into Micron format."
   (format "`=\n%s\n`=" contents))
 
-(defun org-micron-table-row (table-row contents info)
+(defun org-micron-table-row (_table-row contents _info)
   "Transcode TABLE ROW object into Micron format."
   (concat contents "\n"))
 
-(defun org-micron-table-cell (table-cell contents info)
+(defun org-micron-table-cell (_table-cell contents _info)
   "Transcode TABLE CELL object into Micron format."
   (concat " | " contents))
 
-(defun org-micron-horizontal-rule (hr contents info)
+(defun org-micron-horizontal-rule (_hr _contents _info)
   "Translate HORIZONTAL-RULE objects into Micron format."
   "-\n\n"
   )
 
-(defun org-micron-code (src-block contents info)
+(defun org-micron-code (src-block _contents info)
   "Translate SRC-BLOCK objects into Micron format."
   (concat "`=\n" (org-remove-indentation
 		  (org-export-format-code-default src-block info)) "`=\n"))
