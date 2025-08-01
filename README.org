@@ -34,6 +34,24 @@ To publish using ~org-publish~:
   	 :base-directory "~/org/rns")))
 #+end_src
 
+You can also publish using [[https://github.com/acehoss/rnsh][rnsh]]:
+
+#+begin_src emacs-lisp
+  (add-to-list 'tramp-methods
+  `("rnsh"
+    (tramp-login-program      "rnsh")
+    (tramp-login-args         (("%h") ("%u")))
+    (tramp-direct-async       t)
+    (tramp-async-args         (("-q")))
+    (tramp-remote-shell-args  ("-c"))))
+
+  (setq org-publish-project-alist
+        '(("rns"
+  	 :publishing-directory "/rnsh:remotiidentity:/home/you/.nomadnetwork/storage/pages"
+  	 :recursive t
+  	 :publishing-function org-micron-publish-to-micron
+  	 :base-directory "~/org/rns")))
+#+end_src
 ** TODOs
 :PROPERTIES:
 :ID:       7d6f1529-4340-4420-af62-bf37d38f5bec
