@@ -3,6 +3,8 @@
 ;; Author: Aaron Bieber <aaron@bolddaemon.com>
 ;; Keywords: org, text, micron
 ;; URL: https://codeberg.org/qbit/ox-micron
+;; Package-Requires: ((emacs "24.4"))
+;; Version: 0.1.0
 
 ;; Copyright (C) 2025 Aaron Bieber <aaron@bolddaemon.com>
 ;; This program is free software: you can redistribute it and/or modify
@@ -68,8 +70,7 @@
 
 (defun org-micron-horizontal-rule (_hr _contents _info)
   "Translate HORIZONTAL-RULE objects into Micron format."
-  "-\n\n"
-  )
+  "-\n\n")
 
 (defun org-micron-code (src-block _contents info)
   "Translate SRC-BLOCK objects into Micron format."
@@ -128,3 +129,5 @@
       'micron "*Org Micron Export*" async subtreep visible-only body-only))
 
 (provide 'org-micron)
+
+;;; org-micron.el ends here
